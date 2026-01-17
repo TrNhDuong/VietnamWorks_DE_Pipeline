@@ -159,7 +159,7 @@ posgres:
 Khởi tạo schema và bảng:
 
 ```bash
-python setup_db.create_tables
+python -m setup_db.create_tables
 ```
 
 Tạo:
