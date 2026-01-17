@@ -1,0 +1,4 @@
+bleach
+boto3
+pqsycopg[binary]
+pandas
