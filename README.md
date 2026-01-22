@@ -83,6 +83,10 @@ VIETNAMWORK/
 ├── load/
 │   └── load.py                     # Shared load logic
 │
+├── logs/
+│   ├── logger.py
+│   └── etl.log                      # Shared load logic
+│
 ├── utilis/
 │   └── utilis.py                   # Config loader, common helpers
 │
@@ -184,7 +188,7 @@ extract → raw_to_silver → silver_to_warehouse
 ```bash
 python -m etl.extract_to_raw --rundate 2026-01-01
 python -m etl.raw_to_silver --rundate 2026-01-01
-python -m etl.silver_to_warehouse --rundate 2026-01-01
+python -m etl.silver_to_warehouse
 ```
 
 ---
