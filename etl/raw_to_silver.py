@@ -21,8 +21,12 @@ def raw_to_silver(rundate: str):
         object_path=f'raw/{rundate}.parquet'
     )
 
-    logger.info("Transforming raw data to silver format")    
-    df_silver = transform_silver(df_raw=df_raw)
+    logger.info("Transforming raw data to silver format")  
+    try:
+        df_silver = transform_silver(df_raw=df_raw)
+    except ValueError as e:
+        logger.error(f"Collums not exists in data: {e}")
+        raise e  
 
     logger.info("Loading silver data into staging database")
     load_data_to_staging(df_silver=df_silver, connect_str=connect_str)

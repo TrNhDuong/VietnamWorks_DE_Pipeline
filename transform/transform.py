@@ -18,7 +18,17 @@ def transform_silver(df_raw):
         "createdon", "expiredon",
         "companyname", "companyurl", "companyid"
     ]
-    df = df[[c for c in cols_to_keep if c in df.columns]]
+    valid_cols = [c for c in cols_to_keep if c in df.columns]
+
+# 2. Kiểm tra tính toàn vẹn: Nếu danh sách rỗng -> Ném lỗi ngay lập tức
+    if not valid_cols:
+        # Tôi khuyến nghị in ra cả danh sách cột hiện có để dễ debug nhanh
+        raise ValueError(
+            f"Các cột hiện có trong dữ liệu: {list(df.columns)}"
+        )
+
+    # 3. Thực hiện filter
+    df = df[valid_cols]
 
     # 2.1️⃣ Thêm ngày xử lý
     df["processed_date"] = date.today().isoformat()

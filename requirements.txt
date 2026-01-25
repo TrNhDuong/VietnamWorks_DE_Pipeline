@@ -1,4 +1,4 @@
 bleach
 boto3
-pqsycopg[binary]
+psycopg2-binary
 pandas

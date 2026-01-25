@@ -231,3 +231,8 @@ python -m etl.silver_to_warehouse
 * Ưu tiên file-based + DB-based handoff
 
 ---
+
+## Run tutorial
+```
+docker-compose up -d
+```

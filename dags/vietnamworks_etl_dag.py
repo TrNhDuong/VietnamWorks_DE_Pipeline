@@ -1,6 +1,4 @@
 from datetime import datetime, timedelta
-import os
-import sys
 from airflow.decorators import dag, task
 
 
