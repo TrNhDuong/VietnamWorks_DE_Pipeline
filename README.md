@@ -136,9 +136,9 @@ data:
     }
 
 minio:
-  endpoint_url: http://localhost:9000
-  access_key: 
-  secret_key:
+  endpoint_url: http://minio:9000
+  access_key: minioadmin
+  secret_key: minioadmin
   bucket: vietnamwork
 
 posgres:
