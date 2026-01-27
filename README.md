@@ -242,6 +242,23 @@ python -m include.etl.silver_to_warehouse
 ---
 
 ## Run tutorial
+Chạy docker build
 ```
 docker-compose up -d --build
+```
+
+Chi tiết các bước setup minio và trigger airflow
+```
+Mở http://localhost:9001
+User: minioadmin
+Password: minioadmin
+
+Tạo bucket: vietnamwork
+
+Vào docker-desktop khởi động airflow UI port 8081
+Mở http://localhost:8081
+User: airflow
+Password: airflow
+
+Trigger DAG vietnamwork_etl_fixed
 ```

@@ -3,9 +3,9 @@ from airflow.decorators import dag, task
 
 
 try:
-    from etl.extract_to_raw import extract_to_raw as run_logic_extract
-    from etl.raw_to_silver import raw_to_silver as run_logic_raw_to_silver
-    from etl.silver_to_warehouse import silver_to_warehouse as run_logic_warehouse
+    from include.etl.extract_to_raw import extract_to_raw as run_logic_extract
+    from include.etl.raw_to_silver import raw_to_silver as run_logic_raw_to_silver
+    from include.etl.silver_to_warehouse import silver_to_warehouse as run_logic_warehouse
 except ImportError as e:
     raise RuntimeError(f"Failed to import ETL modules: {e}")
 
