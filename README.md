@@ -88,14 +88,14 @@ VIETNAMWORK/
 │   ├── transform/
 │   │   └── transform.py             # Shared transform logic
 │   │
-│   └── utilis/
-│       └── utilis.py                # Config loader, common helpers
-│
+│   ├── utilis/
+│   │   └── utilis.py                # Config loader, common helpers
+│   │              
+│   └── config.yaml                  # Config
 ├── logs/                            # Airflow / runtime logs
 │
 ├── plugins/                         # Airflow plugins (nếu có)
 │
-├── config.yaml                      # Config dùng chung
 ├── docker-compose.yaml
 ├── Dockerfile
 ├── requirements.txt
