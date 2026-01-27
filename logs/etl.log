@@ -1,17 +1,4 @@
-2026-01-22 15:14:11,106 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-01-22 15:14:11,329 | INFO | __main__ | Extracting data from source API
-2026-01-22 15:14:13,220 | INFO | __main__ | Uploading raw data to MinIO at rundate: 22-01-2026
-2026-01-22 15:16:47,690 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-01-22 15:16:47,913 | INFO | __main__ | Extracting data from source API
-2026-01-22 15:16:49,712 | INFO | __main__ | Uploading raw data to MinIO at rundate: 22-01-2026
-2026-01-22 15:34:54,233 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-01-22 15:34:54,529 | INFO | __main__ | Extracting data from source API
-2026-01-22 15:34:56,183 | INFO | __main__ | Uploading raw data to MinIO at rundate: 22-01-2026
-2026-01-22 15:35:19,976 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-01-22 15:35:19,981 | INFO | __main__ | Reading raw data from MinIO at rundate: 22-01-2026
-2026-01-22 15:35:20,736 | INFO | __main__ | Transforming raw data to silver format
-2026-01-22 15:35:20,782 | INFO | __main__ | Loading silver data into staging database
-2026-01-22 15:35:38,297 | INFO | __main__ |  Starting ETL Process - Silver to Warehouse Phase
-2026-01-22 15:35:44,491 | INFO | __main__ | Transforming silver data to gold format
-2026-01-22 15:35:44,888 | INFO | __main__ | Transforming gold data to delta format
-2026-01-22 15:35:46,289 | INFO | __main__ | Loading delta data into warehouse
+2026-01-27 07:26:06,944 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-01-27 07:28:39,746 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-01-27 07:28:40,277 | INFO | __main__ | Extracting data from source API
+2026-01-27 07:28:41,937 | INFO | __main__ | Uploading raw data to MinIO at rundate: 27-01-2026

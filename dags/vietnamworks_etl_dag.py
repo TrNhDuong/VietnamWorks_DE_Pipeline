@@ -6,11 +6,8 @@ try:
     from etl.extract_to_raw import extract_to_raw as run_logic_extract
     from etl.raw_to_silver import raw_to_silver as run_logic_raw_to_silver
     from etl.silver_to_warehouse import silver_to_warehouse as run_logic_warehouse
-except ImportError:
-    # Fallback chỉ để code không lỗi syntax khi tôi không có file của bạn
-    run_logic_extract = lambda rundate: print(f"Extracting {rundate}")
-    run_logic_raw_to_silver = lambda rundate: print(f"Processing Silver {rundate}")
-    run_logic_warehouse = lambda: print("Loading Warehouse")
+except ImportError as e:
+    raise RuntimeError(f"Failed to import ETL modules: {e}")
 
 default_args = {
     'owner': 'data_team',

@@ -1,17 +1,22 @@
 from argparse import ArgumentParser
-from utilis.utilis import loader
-from infra.minio_client import read_df
-from transform.transform import transform_silver
-from load.load import load_data_to_staging
-from logs.logger import setup_logger
+from include.utilis.utilis import loader
+from include.infra.minio_client import read_df
+from include.transform.transform import transform_silver
+from include.load.load import load_data_to_staging
+from include.logs.logger import setup_logger
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
+
 
 logger = setup_logger(__name__)
 
 def raw_to_silver(rundate: str):
     logger.info("Starting ETL Process - Raw to Silver Phase")
 
-    minio_config = loader(config_path='config.yaml', type='minio')
-    postgres_config = loader(config_path='config.yaml', type='posgres')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
+    postgres_config = loader(config_path=CONFIG_PATH, type='posgres')
     connect_str = postgres_config['connect_str']
 
     logger.info(f"Reading raw data from MinIO at rundate: {rundate}")
@@ -39,8 +44,8 @@ if __name__ == "__main__":
 
     logger.info("Starting ETL Process - Raw to Silver Phase")
 
-    minio_config = loader(config_path='config.yaml', type='minio')
-    postgres_config = loader(config_path='config.yaml', type='posgres')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
+    postgres_config = loader(config_path=CONFIG_PATH, type='posgres')
     connect_str = postgres_config['connect_str']
 
     rundate = args.rundate

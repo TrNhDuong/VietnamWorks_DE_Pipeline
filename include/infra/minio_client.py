@@ -1,8 +1,8 @@
 import boto3
-from utilis.utilis import load_minio_config
+from include.utilis.utilis import load_minio_config
 from io import BytesIO
 from botocore.exceptions import ClientError
-from cleaner.df import df_manager
+from include.cleaner.df import df_manager
 import pandas as pd
 import os
 

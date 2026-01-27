@@ -1,5 +1,5 @@
 import pandas as pd
-from infra.postgre import load_data
+from include.infra.postgre import load_data
 
 
 def load_data_to_staging(df_silver: pd.DataFrame, connect_str: str):

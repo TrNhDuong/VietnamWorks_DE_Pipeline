@@ -1,12 +1,15 @@
 import pandas as pd
 import requests
-import datetime
+import os
 import argparse
-from utilis.utilis import loader
-from infra.minio_client import get_minio_client, upload_df
-from logs.logger import setup_logger
+from include.utilis.utilis import loader
+from include.infra.minio_client import get_minio_client, upload_df
+from include.logs.logger import setup_logger
 
 logger = setup_logger(__name__)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
 
 def extract(url, body):
     page = 0
@@ -38,8 +41,13 @@ def extract(url, body):
     return records
 
 def extract_to_raw(rundate: str):
-    data_config = loader(config_path='config.yaml', type='data')
-    minio_config = loader(config_path='config.yaml', type='minio')
+    logger.info(f"Loading config from: {CONFIG_PATH}")
+    
+    # Thêm check tồn tại file để debug
+    if not os.path.exists(CONFIG_PATH):
+        raise FileNotFoundError(f"CRITICAL: Không tìm thấy file config tại {CONFIG_PATH}")
+    data_config = loader(config_path=CONFIG_PATH, type='data')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
 
     url = data_config['url']
     body = data_config['body']
@@ -59,8 +67,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     logger.info("Starting ETL Process - Extract Phase")
-    data_config = loader(config_path='config.yaml', type='data')
-    minio_config = loader(config_path='config.yaml', type='minio')
+    data_config = loader(config_path=CONFIG_PATH, type='data')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
 
     url = data_config['url']
     body = data_config['body']

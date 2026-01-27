@@ -58,41 +58,50 @@ graph LR
 ```bash
 VIETNAMWORK/
 ├── dags/
-│   └── vietnamworks_etl_dag.py     # Airflow DAG (orchestration only)
+│   └── vietnamworks_etl_dag.py      # Airflow DAG (chỉ orchestration)
 │
-├── etl/
-│   ├── extract_to_raw.py           # Extract API → Raw (MinIO)
-│   ├── raw_to_silver.py            # Transform Raw → Silver
-│   ├── silver_to_warehouse.py      # Transform + Load into Warehouse
-│   └── __init__.py
+├── include/
+│   ├── cleaner/
+│   │   └── df.py                    # Data cleaning utilities
+│   │
+│   ├── etl/
+│   │   ├── extract_to_raw.py        # Extract API → Raw (MinIO)
+│   │   ├── raw_to_silver.py         # Transform Raw → Silver
+│   │   ├── silver_to_warehouse.py   # Transform + Load → Warehouse
+│   │   └── __init__.py
+│   │
+│   ├── infra/
+│   │   ├── minio_client.py          # MinIO helpers
+│   │   ├── postgre.py               # PostgreSQL helpers
+│   │   └── __init__.py
+│   │
+│   ├── load/
+│   │   └── load.py                  # Load logic
+│   │
+│   ├── logs/
+│   │   ├── logger.py
+│   │   └── etl.log
+│   │
+│   ├── setup_db/
+│   │   └── create_tables.py         # Init schema & tables
+│   │
+│   ├── transform/
+│   │   └── transform.py             # Shared transform logic
+│   │
+│   └── utilis/
+│       └── utilis.py                # Config loader, common helpers
 │
-├── cleaner/
-│   └── df.py                       # Data cleaning utilities
+├── logs/                            # Airflow / runtime logs
 │
-├── infra/
-│   ├── minio_client.py             # MinIO connection & helpers
-│   ├── postgre.py                  # PostgreSQL (psycopg) helpers
-│   └── __init__.py
+├── plugins/                         # Airflow plugins (nếu có)
 │
-├── setup_db/
-│   └── create_tables.py            # Init schemas & tables
-│
-├── transform/
-│   └── transform.py                # Shared transform logic
-│
-├── load/
-│   └── load.py                     # Shared load logic
-│
-├── logs/
-│   ├── logger.py
-│   └── etl.log                      # Shared load logic
-│
-├── utilis/
-│   └── utilis.py                   # Config loader, common helpers
-│
-├── config.yaml                     # Environment & credential config
+├── config.yaml                      # Config dùng chung
+├── docker-compose.yaml
+├── Dockerfile
 ├── requirements.txt
-└── README.md
+├── DESIGN.md
+├── README.md
+└── .gitignore
 ```
 
 ### Design Notes
@@ -186,9 +195,9 @@ extract → raw_to_silver → silver_to_warehouse
 ### Manual / Local Run (Debug)
 
 ```bash
-python -m etl.extract_to_raw --rundate 2026-01-01
-python -m etl.raw_to_silver --rundate 2026-01-01
-python -m etl.silver_to_warehouse
+python -m include.etl.extract_to_raw --rundate 2026-01-01
+python -m include.etl.raw_to_silver --rundate 2026-01-01
+python -m include.etl.silver_to_warehouse
 ```
 
 ---
@@ -234,5 +243,5 @@ python -m etl.silver_to_warehouse
 
 ## Run tutorial
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```

@@ -15,21 +15,11 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     
-    # --- CẤU HÌNH PROJECT ---
-    # Python sẽ tìm code trong folder này
-    PYTHONPATH: /opt/airflow/VietnamWork
 
   volumes:
-    # 1. Mount DAGs
-    - ./dags:/opt/airflow/dags
-    # 2. Mount Logs
-    - ./logs:/opt/airflow/logs
-    # 3. Mount Plugins
-    - ./plugins:/opt/airflow/plugins
-    # 4. MOUNT SOURCE CODE (Quan trọng nhất)
-    - .:/opt/airflow/VietnamWork
+    - .:/opt/airflow
 
-  user: "${AIRFLOW_UID:-50000}:0"
+  user: "0:0"
   depends_on:
     &airflow-common-depends-on
     redis:

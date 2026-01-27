@@ -1,5 +1,5 @@
 import psycopg
-from utilis.utilis import loader
+from include.utilis.utilis import loader
 
 def create_tables():
     # Load config

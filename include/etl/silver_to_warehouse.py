@@ -1,14 +1,19 @@
-from infra.postgre import read_table
-from utilis.utilis import loader
-from transform.transform import transform_gold, transform_delta
-from load.load import load_data_to_warehouse
-from logs.logger import setup_logger
+from include.infra.postgre import read_table
+from include.utilis.utilis import loader
+from include.transform.transform import transform_gold, transform_delta
+from include.load.load import load_data_to_warehouse
+from include.logs.logger import setup_logger
+import os
 
 logger = setup_logger(__name__)
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
+
+
 def silver_to_warehouse():
-    minio_config = loader(config_path='config.yaml', type='minio')
-    postgres_config = loader(config_path='config.yaml', type='posgres')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
+    postgres_config = loader(config_path=CONFIG_PATH, type='posgres')
     connect_str = postgres_config['connect_str']
 
     logger.info(" Starting ETL Process - Silver to Warehouse Phase")
@@ -36,8 +41,8 @@ def silver_to_warehouse():
     )
     
 if __name__ == "__main__":
-    minio_config = loader(config_path='config.yaml', type='minio')
-    postgres_config = loader(config_path='config.yaml', type='posgres')
+    minio_config = loader(config_path=CONFIG_PATH, type='minio')
+    postgres_config = loader(config_path=CONFIG_PATH, type='posgres')
     connect_str = postgres_config['connect_str']
 
     logger.info(" Starting ETL Process - Silver to Warehouse Phase")

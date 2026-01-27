@@ -1,7 +1,7 @@
 import pandas as pd
 import json
-from utilis.utilis import clean_html_text
-from infra.postgre import get_new_ids_by_temp_table
+from include.utilis.utilis import clean_html_text
+from include.infra.postgre import get_new_ids_by_temp_table
 from datetime import date
 
 def transform_silver(df_raw):
