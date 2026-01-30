@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: job
+    description: Warehouse models
+    columns:
+      - name: job_id
+        description: Job ID
+        tests:
+          - unique
+          - not_null
+      - name: job_title
+        description: Job title
+      - name: job_url
+        description: Job URL
+      - name: job_description
+        description: Job description
+      - name: job_requirement
+        description: Job requirement
+      - name: job_level
+        description: Job level
+      - name: job_level_vi
+        description: Job level in Vietnamese
+      - name: salary
+        description: Salary
+        tests:
+          - not_null
+      - name: salary_min
+        description: Salary min
+      - name: salary_max
+        description: Salary max
+      - name: salary_currency
+        description: Salary currency
+      - name: skills
+        description: Skills
+      - name: benefits
+        description: Benefits
+      - name: created_on
+        description: Created on
+      - name: expired_on
+        description: Expired on
+      - name: company_id
+        description: Company ID
+      - name: processed_date
+        description: Processed date
+      - name: working_locations
+        description: Working locations
+      - name: industries
+        description: Industries
+  - name: company
+    description: Warehouse models
+    columns:
+      - name: company_name
+        description: Company name
+        tests:
+          - not_null
+      - name: company_url
+        description: Company URL
+      - name: company_id
+        description: Company ID
+        tests:
+          - not_null
+      - name: processed_date
+        description: Processed date

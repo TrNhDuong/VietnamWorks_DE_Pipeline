@@ -15,6 +15,13 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     
+    DBT_PROFILE_DIR: /opt/airflow/dbt_vietnamwork
+    DBT_HOST: ep-late-math-a1jbz5xe-pooler.ap-southeast-1.aws.neon.tech
+    DBT_PORT: 5432
+    DBT_USER: neondb_owner
+    DBT_SCHEMA: staging
+    DBT_DBNAME: neondb
+    DBT_PASSWORD: npg_LSgP9d4QmkpF
 
   volumes:
     - .:/opt/airflow

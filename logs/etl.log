@@ -2,3 +2,117 @@
 2026-01-27 07:28:39,746 | INFO | __main__ | Starting ETL Process - Extract Phase
 2026-01-27 07:28:40,277 | INFO | __main__ | Extracting data from source API
 2026-01-27 07:28:41,937 | INFO | __main__ | Uploading raw data to MinIO at rundate: 27-01-2026
+2026-01-30 01:47:20,744 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 01:47:20,745 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 01:47:20,760 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
+2026-01-30 01:47:20,776 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
+2026-01-30 01:47:21,215 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 01:47:21,215 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 01:47:22,838 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-28
+2026-01-30 01:47:23,025 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 01:47:25,572 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 01:47:25,604 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 01:47:25,684 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 01:47:25,717 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-28
+2026-01-30 01:47:25,819 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 01:47:25,848 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 01:47:25,935 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 01:47:25,941 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 01:47:31,214 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
+2026-01-30 01:47:32,089 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
+2026-01-30 01:47:33,218 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
+2026-01-30 01:47:33,438 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
+2026-01-30 01:47:33,941 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
+2026-01-30 01:47:35,068 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
+2026-01-30 01:52:37,089 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
+2026-01-30 01:52:39,241 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
+2026-01-30 01:52:44,577 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
+2026-01-30 01:52:45,454 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
+2026-01-30 01:52:46,611 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
+2026-01-30 01:52:49,820 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
+2026-01-30 01:52:50,697 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
+2026-01-30 01:52:51,909 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
+2026-01-30 02:04:28,211 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:04:28,212 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:04:28,435 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:04:28,435 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:04:29,931 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
+2026-01-30 02:04:30,161 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:04:32,452 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:04:32,452 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:04:32,473 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:04:32,473 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
+2026-01-30 02:04:32,655 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:04:32,656 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:04:32,724 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:04:32,724 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:15:38,286 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:15:38,294 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:15:38,697 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:15:38,700 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:15:40,225 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
+2026-01-30 02:15:40,317 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:15:42,782 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:15:42,783 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:15:42,806 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:15:42,809 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
+2026-01-30 02:15:43,074 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:15:43,074 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:15:43,230 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:15:43,236 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:20:32,989 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:20:32,998 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:20:33,167 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:20:33,167 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:20:34,856 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:20:34,913 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
+2026-01-30 02:20:37,071 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:20:37,094 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
+2026-01-30 02:20:37,101 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:20:37,125 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:20:37,233 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:20:37,247 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:20:37,292 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:20:37,304 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:23:23,282 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:23:23,387 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:23:24,883 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:23:26,770 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:23:26,792 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:23:26,939 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:23:26,996 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:24:25,622 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:24:25,712 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:24:27,385 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:24:28,705 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:24:28,726 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:24:28,851 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:24:28,905 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:28:18,056 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:28:18,082 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:28:18,281 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:28:18,281 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:28:19,769 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
+2026-01-30 02:28:19,897 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:28:21,684 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:28:21,697 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:28:21,709 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:28:21,716 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
+2026-01-30 02:28:21,871 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:28:21,872 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:28:21,940 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:28:21,939 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:33:40,984 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:33:41,217 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:33:42,808 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:33:44,812 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:33:44,839 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:33:45,136 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:33:45,230 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-01-30 02:34:42,836 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-01-30 02:34:42,925 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-01-30 02:34:44,448 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
+2026-01-30 02:34:45,955 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-01-30 02:34:45,970 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
+2026-01-30 02:34:46,087 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-01-30 02:34:46,143 | INFO | include.etl.raw_to_silver | Loading silver data into staging database

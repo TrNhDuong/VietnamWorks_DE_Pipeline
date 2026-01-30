@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from airflow.decorators import dag, task
-
+from airflow.operators.bash import BashOperator
 
 try:
     from include.etl.extract_to_raw import extract_to_raw as run_logic_extract
@@ -35,16 +35,23 @@ def vietnamworks_etl_fixed():
     def task_raw_to_silver(ds=None):
         run_logic_raw_to_silver(rundate=ds)
 
-    @task(task_id='silver_to_warehouse_task')
-    def task_silver_to_warehouse():
-        # Nếu hàm này không cần ngày tháng thì để trống
-        run_logic_warehouse()
+    # @task(task_id='silver_to_warehouse_task')
+    # def task_silver_to_warehouse(ds=None):
+    #     # Nếu hàm này không cần ngày tháng thì để trống
+    #     run_logic_warehouse()
+
+
+    dbt_run_task = BashOperator(
+        task_id='dbt_run_task',
+        bash_command='cd $DBT_PROFILE_DIR && dbt run --vars \'{ "run_date": "{{ ds }}" }\'',
+        # Airflow tự động inject {{ ds }} vào thời điểm chạy
+    )
 
     
     t1 = task_extract()
     t2 = task_raw_to_silver()
-    t3 = task_silver_to_warehouse()
+    # t3 = task_silver_to_warehouse()
 
-    t1 >> t2 >> t3
+    t1 >> t2 >> dbt_run_task
 
 dag_instance = vietnamworks_etl_fixed()

@@ -1,0 +1,58 @@
+[0m22:35:10.046996 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DC041820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DC61DEB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DACCD0D0>]}
+
+
+============================== 22:35:10.052017 | d1a988b8-0769-42e4-ba01-4238a858c2a1 ==============================
+[0m22:35:10.052017 [info ] [MainThread]: Running with dbt=1.11.2
+[0m22:35:10.052997 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'log_format': 'default', 'no_print': 'None', 'target_path': 'None', 'invocation_command': 'dbt init dbt_vietnamwork', 'warn_error': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'version_check': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'profiles_dir': 'C:\\Users\\MY MSI\\.dbt', 'use_colors': 'True', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m22:35:10.078754 [debug] [MainThread]: Starter project path: C:\Users\MY MSI\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\include\starter_project
+[0m22:35:10.091765 [info ] [MainThread]: 
+Your new dbt project "dbt_vietnamwork" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:35:10.092743 [info ] [MainThread]: Setting up your profile.
+[0m22:36:32.367962 [info ] [MainThread]: Profile dbt_vietnamwork written to C:\Users\MY MSI\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:36:32.368960 [debug] [MainThread]: Command `dbt init` succeeded at 22:36:32.368960 after 82.44 seconds
+[0m22:36:32.368960 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DC8CFB60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DC8CF2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000247DC8CC7A0>]}
+[0m22:36:32.369961 [debug] [MainThread]: Flushing usage events
+[0m22:36:35.068602 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:40:11.746624 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757D517DA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757BB028A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757BBA1820>]}
+
+
+============================== 21:40:11.757233 | 00b3e61c-6115-46d8-9202-03b966edf3d0 ==============================
+[0m21:40:11.757233 [info ] [MainThread]: Running with dbt=1.11.2
+[0m21:40:11.757739 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'write_json': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\MY MSI\\.dbt', 'invocation_command': 'dbt init dbt_vietnamwork', 'warn_error': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'use_colors': 'True', 'printer_width': '80', 'target_path': 'None'}
+[0m21:40:11.811441 [debug] [MainThread]: Starter project path: C:\Users\MY MSI\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\include\starter_project
+[0m21:40:11.861537 [info ] [MainThread]: 
+Your new dbt project "dbt_vietnamwork" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:40:11.862532 [info ] [MainThread]: Setting up your profile.
+[0m21:41:42.658043 [info ] [MainThread]: Profile dbt_vietnamwork written to C:\Users\MY MSI\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:41:42.659956 [debug] [MainThread]: Command `dbt init` succeeded at 21:41:42.659956 after 91.09 seconds
+[0m21:41:42.661682 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757BD3AF60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757BD39940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001757D3C74A0>]}
+[0m21:41:42.662951 [debug] [MainThread]: Flushing usage events
+[0m21:41:46.571081 [debug] [MainThread]: An error was encountered while trying to flush usage events

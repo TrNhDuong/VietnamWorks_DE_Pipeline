@@ -1,9 +1,13 @@
 import psycopg
+import os
 from include.utilis.utilis import loader
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
 
 def create_tables():
     # Load config
-    postgres_config = loader(config_path="config.yaml", type="posgres")
+    postgres_config = loader(config_path=CONFIG_PATH, type="posgres")
     
     # Connect directly using psycopg to handle DDL (autocommit recommended for some DDLs, but inside transaction is fine usually)
     # Using our infra wrapper to get connection
@@ -51,8 +55,8 @@ def create_tables():
         job_id TEXT PRIMARY KEY,
         job_title TEXT,
         job_url TEXT,
-        description TEXT,
-        requirement TEXT,
+        job_description TEXT,
+        job_requirement TEXT,
         job_level TEXT,
         job_level_vi TEXT,
         salary_min NUMERIC,

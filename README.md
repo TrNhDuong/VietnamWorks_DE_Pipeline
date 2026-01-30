@@ -20,27 +20,11 @@ Mục tiêu không phải demo, mà là **thiết kế có thể scale và maint
 
 ---
 
-## 🏗 Architecture
-
-```mermaid
-graph LR
-    API[VietnamWorks API] --> RAW[Raw Layer<br/>MinIO]
-    RAW --> SILVER[Silver Layer<br/>Cleaned Tables]
-    SILVER --> WH[Warehouse<br/>PostgreSQL]
-```
-
-### Data Flow
-
-1. **Extract** dữ liệu từ API → lưu Raw vào MinIO, kinh phí hơn thì sử dụng AWS, cùng tương thích với S3
-2. **Transform Raw → Silver** (clean, normalize, split tables)
-3. **Transform Silver → Warehouse** (delta check + upsert)
-
----
-
 ## 🛠 Tech Stack
 
 * **Language**: Python 3.9+
 * **Orchestration**: Apache Airflow
+* **Data Processing**: dbt
 * **Database**: PostgreSQL Neon Cloud
 * **Object Storage**: MinIO (S3 compatible)
 * **Core Libraries**:
@@ -59,6 +43,12 @@ graph LR
 VIETNAMWORK/
 ├── dags/
 │   └── vietnamworks_etl_dag.py      # Airflow DAG (chỉ orchestration)
+│
+├── doc/                             # Documemt của hệ thống
+│   ├── ARCHITECTURE.md
+│   ├── DATA_MODEL.md
+│   ├── SETUP_RUN.md
+│   └── 
 │
 ├── include/
 │   ├── cleaner/
@@ -99,7 +89,6 @@ VIETNAMWORK/
 ├── docker-compose.yaml
 ├── Dockerfile
 ├── requirements.txt
-├── DESIGN.md
 ├── README.md
 └── .gitignore
 ```
@@ -167,98 +156,4 @@ posgres:
 
 ---
 
-## 🗄 Database Initialization
 
-Khởi tạo schema và bảng:
-
-```bash
-python -m setup_db.create_tables
-```
-
-Tạo:
-
-* `staging`
-* `warehouse`
-
----
-
-## ▶️ Running the Pipeline
-
-### Airflow (Production way)
-
-Pipeline được orchestrate bằng Airflow DAG:
-
-```
-extract → raw_to_silver → silver_to_warehouse
-```
-
-### Manual / Local Run (Debug)
-
-```bash
-python -m include.etl.extract_to_raw --rundate 2026-01-01
-python -m include.etl.raw_to_silver --rundate 2026-01-01
-python -m include.etl.silver_to_warehouse
-```
-
----
-
-## 📊 Data Model (Warehouse)
-
-### warehouse.company
-
-* `company_id`
-* `company_name`
-* `company_url`
-* `industries`
-* `processed_date`
-
-### warehouse.job
-
-* `job_id`
-* `job_title`
-* `salary_min`
-* `salary_max`
-* `working_locations`
-* `company_id`
-* `processed_date`
-...
----
-
-## 🎯 Design Principles
-
-* Idempotent theo `rundate`
-* Không phụ thuộc Airflow runtime
-* Delta-based loading
-* Tối ưu cho maintainability hơn là demo nhanh
-
----
-
-## 📌 Notes
-
-* Không dùng XCom cho data lớn
-* Không truyền DataFrame giữa tasks
-* Ưu tiên file-based + DB-based handoff
-
----
-
-## Run tutorial
-Chạy docker build
-```
-docker-compose up -d --build
-```
-
-Chi tiết các bước setup minio và trigger airflow
-```
-Mở http://localhost:9001
-User: minioadmin
-Password: minioadmin
-
-Tạo bucket: vietnamwork
-
-Vào docker-desktop khởi động airflow UI port 8081
-Mở http://localhost:8081
-User: airflow
-Password: airflow
-
-Trigger DAG vietnamwork_etl_fixed
-```

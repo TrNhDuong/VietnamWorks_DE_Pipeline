@@ -1,0 +1,10 @@
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: job_company
+  - name: warehouse
+    schema: warehouse
+    tables:
+      - name: job
+      - name: company

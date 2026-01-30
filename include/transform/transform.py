@@ -63,6 +63,13 @@ def transform_silver(df_raw):
     # ⭐ 6️⃣ CHUẨN HOÁ TÊN CỘT → lowercase
     df.columns = df.columns.str.lower()
 
+    for col in ["jobtitle", "jobdescription", "jobrequirement", "joblevel", "joblevelvi", "salarycurrency", "companyname"]:
+        if col in df.columns:
+            df[col] = df[col].apply(lambda x: x.lower() if isinstance(x, str) else x)
+
+    df = df[df['salarymin'] >= 0 & (df['salarymax'] >= df['salarymin'])]
+
+
     return df
 
 

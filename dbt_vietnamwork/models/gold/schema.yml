@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: gold_job
+    description: Gold models
+    columns:
+      - name: jobid
+        description: Job ID
+        tests:
+          - unique
+          - not_null
+      - name: jobtitle
+        description: Job title
+      - name: joburl
+        description: Job URL
+      - name: jobdescription
+        description: Job description
+      - name: jobrequirement
+        description: Job requirement
+      - name: joblevel
+        description: Job level
+      - name: joblevelvi
+        description: Job level in Vietnamese
+      - name: salary
+        description: Salary
+        tests:
+          - not_null
+      - name: salarymin
+        description: Salary min
+      - name: salarymax
+        description: Salary max
+      - name: salarycurrency
+        description: Salary currency
+      - name: skills
+        description: Skills
+      - name: benefits
+        description: Benefits
+      - name: createdon
+        description: Created on
+      - name: expiredon
+        description: Expired on
+      - name: companyname
+        description: Company name
+      - name: companyurl
+        description: Company URL
+      - name: companyid
+        description: Company ID
+      - name: processed_date
+        description: Processed date
+      - name: working_locations
+        description: Working locations
+      - name: industries
+        description: Industries
+  - name: gold_company
+    description: Gold models
+    columns:
+      - name: companyname
+        description: Company name
+        tests:
+          - not_null
+      - name: companyurl
+        description: Company URL
+      - name: companyid
+        description: Company ID
+        tests:
+          - unique
+          - not_null
+      - name: processed_date
+        description: Processed date
