@@ -11,11 +11,11 @@ graph TD
     end
 
     subgraph "Processing Layer"
-        RAW -->|Load & Transform| STAGING[Postgres DB<br>(Staging Schema)<br>Table: job_company]
+        RAW -->|Load & Transform| STAGING["Postgres DB<br>(Staging Schema)<br>Table: job_company"]
     end
 
     subgraph "Transformation Layer (dbt)"
-        STAGING -->|dbt run| WAREHOUSE[Postgres DB<br>(Warehouse Schema)<br>Tables: job, company]
+        STAGING -->|dbt run| WAREHOUSE["Postgres DB<br>(Warehouse Schema)<br>Tables: job, company"]
     end
 
     subgraph "Orchestration (Airflow)"
