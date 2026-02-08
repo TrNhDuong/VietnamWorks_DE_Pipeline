@@ -14,7 +14,7 @@ erDiagram
         string company_id PK
         string company_name
         string company_url
-        string processed_date
+        date processed_date
     }
 
     JOB {
@@ -25,7 +25,7 @@ erDiagram
         numeric salary_max
         string job_level
         string job_description
-        string job_requirements
+        string job_requirement
         string benefits
         jsonb working_locations
         jsonb industries
@@ -38,9 +38,9 @@ erDiagram
 
 ### 2.1. Staging Area (Schema: `staging`)
 
-Dữ liệu sau khi raw được load vào Staging. Đây vẫn là dạng dữ liệu phẳng (denormalized), gần với cấu trúc JSON ban đầu nhưng ở dạng bảng.
+Dữ liệu sau khi raw được load vào Staging. Đây vẫn là dạng dữ liệu phẳng (denormalized), gần với cấu trúc JSON ban đầu nhưng ở dạng bảng Postgres.
 
-**Table: `job_company`**
+**Table: `start_job_company`**
 
 | Column Name | Type | Description |
 |---|---|---|
@@ -54,7 +54,6 @@ Dữ liệu sau khi raw được load vào Staging. Đây vẫn là dạng dữ 
 | `expiredOn` | TIMESTAMP | Thời gian hết hạn. |
 | `working_locations` | JSONB | Danh sách địa điểm làm việc (JSON array). |
 | `industries` | JSONB | Danh sách ngành nghề (JSON array). |
-| ... | (các trường khác) | Các trường bổ trợ như `jobDescription`, `benefits`, `skills`. |
 
 ### 2.2. Warehouse Area (Schema: `warehouse`)
 
@@ -87,5 +86,6 @@ Dữ liệu được làm sạch, tách bảng và chuẩn hóa để phục v�
 
 ## 3. Data Dictionary Notes
 
-- **`working_locations`**: Lưu trữ dưới dạng JSONB array. Ví dụ: `[{"city": "Ho Chi Minh", "district": "District 1"}]`. Việc này giúp truy vấn linh hoạt mà không cần bảng cầu nối quá phức tạp cho use-case hiện tại.
-- **`salary`**: Được tách thành `salary_min` và `salary_max` để tiện cho việc query range. Nếu lương là "Thỏa thuận", giá trị có thể là NULL hoặc 0 tùy logic cleaning.
+- **`working_locations`**: Lưu trữ dưới dạng JSONB array. Ví dụ: `[{"city": "Ho Chi Minh", "district": "District 1"}]`.
+- **`industries`**: Lưu trữ dạng JSONB array.
+- **`salary`**: Được tách thành `salary_min` và `salary_max`.

@@ -3,8 +3,8 @@ import requests
 import os
 import argparse
 from include.utilis.utilis import loader
-from include.infra.minio_client import get_minio_client, upload_df
 from include.logs.logger import setup_logger
+from include.infra.factory import Factory
 
 logger = setup_logger(__name__)
 
@@ -46,20 +46,22 @@ def extract_to_raw(rundate: str):
     # Thêm check tồn tại file để debug
     if not os.path.exists(CONFIG_PATH):
         raise FileNotFoundError(f"CRITICAL: Không tìm thấy file config tại {CONFIG_PATH}")
+    
     data_config = loader(config_path=CONFIG_PATH, type='data')
-    minio_config = loader(config_path=CONFIG_PATH, type='minio')
-
     url = data_config['url']
     body = data_config['body']
-    bucket = minio_config['bucket']
-    s3 = get_minio_client(minio_config=minio_config)
 
     logger.info("Extracting data from source API")
     raw_data = extract(url=url, body=body)
     raw_df = pd.DataFrame(raw_data)
 
-    logger.info(f"Uploading raw data to MinIO at rundate: {rundate}")
-    upload_df(s3=s3, bucket=bucket, object_path=f'raw/{rundate}.parquet', df=raw_df)
+    logger.info(f"Uploading raw data to Azure at rundate: {rundate}")
+    adls_client = Factory.get_adls_client()
+    adls_client.upload_dataframe(
+        df=raw_df,
+        remote_path=f'raw/{rundate}.parquet',
+        format='parquet'
+    )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -68,18 +70,21 @@ if __name__ == "__main__":
     
     logger.info("Starting ETL Process - Extract Phase")
     data_config = loader(config_path=CONFIG_PATH, type='data')
-    minio_config = loader(config_path=CONFIG_PATH, type='minio')
-
+    
     url = data_config['url']
     body = data_config['body']
-    bucket = minio_config['bucket']
-    s3 = get_minio_client(minio_config=minio_config)
 
     logger.info("Extracting data from source API")
     raw_data = extract(url=url, body=body)
     raw_df = pd.DataFrame(raw_data)
     rundate = parser.parse_args().rundate
 
-    logger.info(f"Uploading raw data to MinIO at rundate: {rundate}")
-    upload_df(s3=s3, bucket=bucket, object_path=f'raw/{rundate}.parquet', df=raw_df)
+    logger.info(f"Uploading raw data to Azure at rundate: {rundate}")
+
+    adls_client = Factory.get_adls_client()
+    adls_client.upload_dataframe(
+        df=raw_df,
+        remote_path=f'raw/{rundate}.parquet',
+        format='parquet'
+    )
     

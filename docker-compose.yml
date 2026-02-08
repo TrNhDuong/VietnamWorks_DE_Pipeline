@@ -21,7 +21,7 @@ x-airflow-common:
     DBT_USER: neondb_owner
     DBT_SCHEMA: staging
     DBT_DBNAME: neondb
-    DBT_PASSWORD: npg_LSgP9d4QmkpF
+    DBT_PASSWORD: ${DBT_PASSWORD}
 
   volumes:
     - .:/opt/airflow

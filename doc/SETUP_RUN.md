@@ -1,70 +1,108 @@
 # Setup & Installation Guide
 
-Hướng dẫn cài đặt và chạy dự án **VietnamWorks Data Pipeline** trên môi trường local.
+Hướng dẫn cài đặt và vận hành hệ thống **VietnamWorks Data Pipeline** trên môi trường Local.
 
-## Prerequisites (Yêu cầu)
+## 1. Prerequisites (Yêu cầu)
 
-Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các công cụ sau:
-1. **Docker Desktop**: Để chạy container.
+Đảm bảo bạn đã cài đặt:
+1. **Docker Desktop**: Công cụ chính để chạy hệ thống.
 2. **Git**: Để clone source code.
-3. **Python 3.9+** (Optional): Nếu muốn chạy script lẻ bên ngoài Docker.
+3. **Azure Account**: Một tài khoản Azure có quyền truy cập vào Storage Account (Data Lake Gen2).
 
-## Installation Steps (Cài đặt)
+## 2. Configuration & Secrets
 
-### 1. Clone Repository
+Vì hệ thống sử dụng **Azure Data Lake Gen2**, bạn cần cung cấp thông tin xác thực (Credentials) an toàn.
+
+### Bước 1: Tạo file `.env`
+Tạo một file `.env` tại thư mục gốc dự án (ngang hàng `docker-compose.yml`) và điền thông tin Azure của bạn:
+
 ```bash
-git clone git@github.com:TrNhDuong/VietnamWorks_DE_Pipeline.git
-cd VietnamWork
+# Azure Storage Config
+AZURE_STORAGE_ACCOUNT_NAME=your_account_name
+AZURE_CONTAINER_NAME=vietnamworks
+
+# Authentication (Service Principal - Recommended)
+AZURE_TENANT_ID=your_tenant_id
+AZURE_CLIENT_ID=your_client_id
+AZURE_CLIENT_SECRET=your_client_secret
+
+# Postgres Config (Optional Override)
+# POSTGRES_USER=tnd
+# POSTGRES_PASSWORD=tnd
 ```
 
-### 2. Cấu hình Environment
-Kiểm tra file `include/config.yaml`. Đây là nơi chứa các cấu hình quan trọng:
-- **API URL**: Endpoint lấy dữ liệu.
-- **MinIO**: User/Password mặc định (`minioadmin`/`minioadmin`).
-- **Postgres**: Connection string đến Database (NeonDB hoặc Local).
-
-### 3. Khởi chạy với Docker Compose
-Sử dụng Docker Compose để dựng toàn bộ stack (Airflow, MinIO, Postgres, Redis).
-
+### Bước 2: Build & Start System
 ```bash
 docker-compose up -d --build
 ```
-*Lệnh này sẽ build image Custom Airflow và pull các images cần thiết.*
 
-### 4. Kiểm tra trang thái các dịch vụ
-Sau khi chạy xong, truy cập các đường dẫn sau:
-- **Airflow UI**: [http://localhost:8081](http://localhost:8081) (User: `airflow`, Pass: `airflow`)
-- **MinIO Console**: [http://localhost:9001](http://localhost:9001) (User: `minioadmin`, Pass: `minioadmin`)
+### Bước 3: Verify Services
+- **Airflow UI**: [http://localhost:8081](http://localhost:8081) (User/Pass: `airflow`/`airflow`)
+- **Azure Portal**: Kiểm tra Storage Account của bạn trên Azure để xem dữ liệu Raw.
 
-## Database Initialization (Khởi tạo DB)
+## 3. Database Setup (Running Locally/Manually)
 
-Nếu chạy lần đầu, bạn cần khởi tạo các bảng trong Database (Staging & Warehouse schema).
-Đoạn script tạo bảng nằm tại `include/setup_db/create_tables.py`. Bạn có thể chạy nó thủ công hoặc thêm vào Airflow DAG nếu cần.
+Nếu Database của bạn chưa có bảng (Run lần đầu), bạn cần khởi tạo schema `staging` và `warehouse`.
 
-Để chạy thủ công (Yêu cầu Python local đã cài thư viện trong `requirements.txt`):
+Có 2 cách để khởi tạo:
+
+**Cách A: Dùng script Python có sẵn (Khuyên dùng)**
+Nếu bạn có Python local:
 ```bash
-# Cài thư viện
 pip install -r requirements.txt
-
-# Run script
 python -m include.setup_db.create_tables
 ```
-*Lưu ý: Nếu sử dụng NeonDB Cloud, đảm bảo bạn đã update connection string trong `include/config.yaml` chính xác.*
 
-## How to Run the Pipeline (Vận hành)
+**Cách B: Dùng SQL Client**
+Kết nối vào Postgres và chạy DDL thủ công cho schema `staging` và `warehouse`.
 
-1. **Truy cập Airflow UI**: Login vào [http://localhost:8081](http://localhost:8081).
-2. **Kích hoạt DAG**: Tìm DAG có tên `vietnamworks_etl_fixed` và gạt nút Trigger.
-3. **Trigger DAG**: Bấm nút **Trigger DAG** (nút Play) để chạy ngay lập tức.
-4. **Monitoring**:
-    - Theo dõi các task `extract`, `transform`, `load` chuyển sang màu xanh lá cây (Success).
-    - Checks Logs nếu có lỗi (Click vào task -> Logs).
+## 4. Run the Pipeline
 
-## dbt Integration
+### Option 1: Trigger via Airflow (Recommended)
+1. Truy cập **Airflow UI**: [http://localhost:8081](http://localhost:8081).
+2. Tìm DAG **`vietnamworks_etl_fixed`**.
+3. Toggle button **ON** (Unpause).
+4. Click nút **Play** (Trigger DAG) để chạy.
 
-Project dbt nằm trong thư mục `dbt_vietnamwork`. Airflow sẽ tự động trigger lệnh `dbt run` thông qua `BashOperator`.
-Nếu muốn chạy dbt thủ công local:
+**Monitoring**:
+- Click vào DAG để xem Graph View.
+- Theo dõi màu xanh lá cây (Success) qua các bước `extract` -> `raw_to_silver` -> `dbt_run`.
+
+### Option 2: Run via CLI (For Development)
+Bạn có thể chạy từng module riêng lẻ nếu đã cài môi trường Python local.
+
 ```bash
+# 1. Extract
+python -m include.etl.extract_to_raw
+
+# 2. Transform to Staging
+python -m include.etl.raw_to_silver
+
+# 3. dbt Run
 cd dbt_vietnamwork
-dbt run --vars "{'run_date': '2025-01-01'}" .
+dbt run
+```
+
+## 5. Configuration (`include/config.yaml`)
+
+Cấu hình hệ thống nằm tại `include/config.yaml`.
+**Lưu ý**: Thông tin nhạy cảm (Credentials) nên để trong `.env`, không hardcode vào `config.yaml`.
+
+- **API URL/Body**: Tham số request lấy job.
+- **Postgres Creds**: Thông tin kết nối Database.
+
+```yaml
+posgres:
+  host: localhost  # Đổi thành 'postgres' nếu chạy trong Docker container
+  port: 5432
+  user: tnd        # Cập nhật username của bạn
+  password: tnd    # Cập nhật password của bạn
+```
+
+## 6. dotenv configuration file ./.env
+```bash
+    AZURE_STORAGE_ACCOUNT_NAME = 
+    AZURE_CONTAINER_NAME = 
+    POSTGRES_CONNECTION_STRING = 
+    DBT_PASSWORD = 
 ```

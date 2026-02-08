@@ -116,3 +116,47 @@
 2026-01-30 02:34:45,970 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
 2026-01-30 02:34:46,087 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
 2026-01-30 02:34:46,143 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-08 19:10:37,802 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-02-08 19:10:37,807 | INFO | __main__ | Extracting data from source API
+2026-02-08 19:10:39,574 | INFO | __main__ | Uploading raw data to Azure at rundate: 2024-06-01
+2026-02-08 19:10:39,579 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 19:10:41,872 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2024-06-01.parquet (157.58 KB)
+2026-02-08 19:49:29,977 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 19:49:29,979 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 19:49:29,983 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
+2026-02-08 19:51:12,560 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 19:51:12,563 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 19:51:12,566 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
+2026-02-08 19:51:15,768 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 19:52:44,467 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 19:52:44,469 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 19:52:44,473 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
+2026-02-08 19:52:46,705 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 19:56:22,230 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 19:56:22,233 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 19:56:22,236 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
+2026-02-08 19:56:24,550 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 19:56:24,563 | INFO | __main__ | Loading silver data into staging database
+2026-02-08 20:02:53,553 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 20:02:53,555 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 20:02:53,559 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
+2026-02-08 20:03:20,421 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 20:03:20,424 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 20:03:20,427 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
+2026-02-08 20:03:22,641 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 20:03:22,643 | INFO | __main__ | Loading silver data into staging database
+2026-02-08 20:06:13,567 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-02-08 20:06:13,570 | INFO | __main__ | Extracting data from source API
+2026-02-08 20:06:15,373 | INFO | __main__ | Uploading raw data to Azure at rundate: 2026-08-02
+2026-02-08 20:06:15,377 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 20:06:17,399 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-08-02.parquet (165.72 KB)
+2026-02-08 20:06:50,216 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 20:06:50,218 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 20:06:50,222 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
+2026-02-08 20:06:52,467 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 20:06:52,469 | INFO | __main__ | Loading silver data into staging database
+2026-02-08 20:07:41,974 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-08 20:07:41,978 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-08 20:07:41,982 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
+2026-02-08 20:07:44,217 | INFO | __main__ | Transforming raw data to silver format
+2026-02-08 20:07:44,225 | INFO | __main__ | Loading silver data into staging database

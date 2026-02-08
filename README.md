@@ -1,9 +1,10 @@
 # 🚀 VietnamWorks Data Engineering Pipeline
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
-![Airflow](https://img.shields.io/badge/Airflow-2.x-017CEE?style=for-the-badge\&logo=apacheairflow\&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge\&logo=postgresql\&logoColor=white)
-![MinIO](https://img.shields.io/badge/MinIO-C72E49?style=for-the-badge\&logo=minio\&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Airflow](https://img.shields.io/badge/Airflow-2.x-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure_Data_Lake-007FFF?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![dbt](https://img.shields.io/badge/dbt-1.x-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
 
 ---
 
@@ -13,27 +14,22 @@
 
 Dự án được thiết kế theo tư duy **Modern Data Engineering**, áp dụng:
 
-* **Medallion Architecture**: Raw → Silver → Warehouse
-* **Airflow** cho orchestration
-* **Python CLI-based ETL** (chạy độc lập, không phụ thuộc Airflow runtime)
-Mục tiêu không phải demo, mà là **thiết kế có thể scale và maintain**.
+*   **Medallion Architecture**: Raw → Silver → Warehouse
+*   **Airflow** cho orchestration (Containerized)
+*   **dbt** cho transformation layer
+*   **Azure Data Lake Gen2** cho Data Lake storage (Raw Zone)
 
 ---
 
 ## 🛠 Tech Stack
 
-* **Language**: Python 3.9+
-* **Orchestration**: Apache Airflow
-* **Data Processing**: dbt
-* **Database**: PostgreSQL Neon Cloud
-* **Object Storage**: MinIO (S3 compatible)
-* **Core Libraries**:
-
-  * `pandas`
-  * `requests`
-  * `psycopg`
-  * `minio`
-  * `pyyaml`
+*   **Language**: Python 3.9+
+*   **Orchestration**: Apache Airflow 2.x
+*   **Transformation**: dbt (Data Build Tool)
+*   **Database**: PostgreSQL (NeonDB or Local)
+*   **Object Storage**: Azure Data Lake Storage Gen2 (ADLS)
+*   **Containerization**: Docker & Docker Compose
+*   **Libraries**: `pandas`, `psycopg`, `azure-storage-file-datalake`, `adlfs`
 
 ---
 
@@ -42,118 +38,64 @@ Mục tiêu không phải demo, mà là **thiết kế có thể scale và maint
 ```bash
 VIETNAMWORK/
 ├── dags/
-│   └── vietnamworks_etl_dag.py      # Airflow DAG (chỉ orchestration)
+│   └── vietnamworks_etl_dag.py      # Airflow DAG definition
 │
-├── doc/                             # Documemt của hệ thống
+├── doc/                             # Project Documentation
 │   ├── ARCHITECTURE.md
 │   ├── DATA_MODEL.md
-│   ├── SETUP_RUN.md
-│   └── 
+│   └── SETUP_RUN.md
 │
-├── include/
+├── include/                         # ETL Logic & Utilities
 │   ├── cleaner/
-│   │   └── df.py                    # Data cleaning utilities
-│   │
+│   │   └── df.py                    # Data cleaning logic
 │   ├── etl/
-│   │   ├── extract_to_raw.py        # Extract API → Raw (MinIO)
-│   │   ├── raw_to_silver.py         # Transform Raw → Silver
-│   │   ├── silver_to_warehouse.py   # Transform + Load → Warehouse
-│   │   └── __init__.py
-│   │
+│   │   ├── extract_to_raw.py        # API -> MinIO (Raw)
+│   │   └── raw_to_silver.py         # Raw -> Postgres (Staging)
 │   ├── infra/
-│   │   ├── minio_client.py          # MinIO helpers
-│   │   ├── postgre.py               # PostgreSQL helpers
-│   │   └── __init__.py
-│   │
+│   │   ├── azure_datalake.py        # Azure integration (if used)
+│   │   ├── postgres.py              # Postgres connection wrapper
+│   │   └── factory.py
 │   ├── load/
-│   │   └── load.py                  # Load logic
-│   │
-│   ├── logs/
-│   │   ├── logger.py
-│   │   └── etl.log
-│   │
+│   │   └── load.py                  # Loading utilities
 │   ├── setup_db/
-│   │   └── create_tables.py         # Init schema & tables
-│   │
+│   │   └── create_tables.py         # Database initialization
 │   ├── transform/
-│   │   └── transform.py             # Shared transform logic
-│   │
+│   │   └── transform.py             # Transformation logic
 │   ├── utilis/
-│   │   └── utilis.py                # Config loader, common helpers
-│   │              
-│   └── config.yaml                  # Config
-├── logs/                            # Airflow / runtime logs
+│   │   └── utilis.py                # Config loader & helpers
+│   └── config.yaml                  # System Configuration
 │
-├── plugins/                         # Airflow plugins (nếu có)
+├── dbt_vietnamwork/                 # dbt Project
+│   ├── models/
+│   │   ├── staging/
+│   │   └── warehouse/
+│   └── dbt_project.yml
 │
-├── docker-compose.yaml
-├── Dockerfile
-├── requirements.txt
-├── README.md
-└── .gitignore
+├── docker-compose.yml               # Infrastructure definition
+├── Dockerfile                       # Custom Airflow image
+└── requirements.txt                 # Python dependencies
 ```
-
-### Design Notes
-
-* **DAG chỉ orchestration**, không chứa business logic
-* Mỗi file trong `etl/` có thể chạy độc lập qua CLI
-* Logic dùng lại được tách sang `infra/`, `transform/`, `load/`, `cleaner/`
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Install dependencies
+Dự án được đóng gói hoàn toàn bằng Docker Compose để dễ dàng triển khai trên môi trường local.
 
-```bash
-pip install -r requirements.txt
-```
+> 👉 **Xem hướng dẫn chi tiết tại:** [SETUP_RUN.md](doc/SETUP_RUN.md)
 
-### 2️⃣ Configuration
+### Quick Start
 
-Cấu hình trong `config.yaml`:
+1. **Clone repository:**
+   ```bash
+   git clone git@github.com:TrNhDuong/VietnamWorks_DE_Pipeline.git
+   cd VietnamWork
+   ```
 
-```yaml
-data:
-  url: https://ms.vietnamworks.com/job-search/v1.0/search
-  body: {"userId":0,"query":"","filter":[],"ranges":[],"order":[],
-        "hitsPerPage":100,"page":0,
-        "retrieveFields":["address","benefits","jobTitle","salaryMax",
-                          "isSalaryVisible","jobLevelVI","isShowLogo",
-                          "salaryMin","companyLogo","userId","jobLevel",
-                          "jobLevelId","jobId","jobUrl","companyId","approvedOn",
-                          "isAnonymous","alias","expiredOn","industries",
-                          "industriesV3","workingLocations","services",
-                          "companyName","salary","onlineOn","simpleServices",
-                          "visibilityDisplay","isShowLogoInSearch","priorityOrder",
-                          "skills","profilePublishedSiteMask","jobDescription",
-                          "jobRequirement","prettySalary","requiredCoverLetter",
-                          "languageSelectedVI","languageSelected","languageSelectedId",
-                          "typeWorkingId","createdOn","isAdrLiteJob"],
-        "summaryVersion":""
-    }
+2. **Khởi chạy hệ thống:**
+   ```bash
+   docker-compose up -d --build
+   ```
 
-minio:
-  endpoint_url: http://minio:9000
-  access_key: minioadmin
-  secret_key: minioadmin
-  bucket: vietnamwork
-
-posgres:
-  connect_str:
-  staging:
-    schema: staging
-    table: job_company
-  warehouse:
-    schema: warehouse
-
-  dbname: tnd
-  user: tnd
-  password: tnd
-  host: localhost
-  port: 5432
-```
-
----
-
-
+3. **Truy cập:**
+   - Airflow UI: [http://localhost:8081](http://localhost:8081)

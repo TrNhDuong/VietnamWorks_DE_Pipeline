@@ -1,5 +1,7 @@
 bleach
-boto3
 psycopg[binary]
 pandas
 dbt-postgres
+adlfs
+azure-storage-file-datalake
+azure-identity
