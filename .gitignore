@@ -4,3 +4,4 @@ scheduler
 *dag_*
 *.cfg
 profiles.yml
+.env
