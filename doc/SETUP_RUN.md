@@ -20,15 +20,7 @@ Tạo một file `.env` tại thư mục gốc dự án (ngang hàng `docker-com
 # Azure Storage Config
 AZURE_STORAGE_ACCOUNT_NAME=your_account_name
 AZURE_CONTAINER_NAME=vietnamworks
-
-# Authentication (Service Principal - Recommended)
-AZURE_TENANT_ID=your_tenant_id
-AZURE_CLIENT_ID=your_client_id
-AZURE_CLIENT_SECRET=your_client_secret
-
-# Postgres Config (Optional Override)
-# POSTGRES_USER=tnd
-# POSTGRES_PASSWORD=tnd
+AZURE_CONNECTION_STRING=your_connnection_string
 ```
 
 ### Bước 2: Build & Start System
@@ -91,13 +83,6 @@ Cấu hình hệ thống nằm tại `include/config.yaml`.
 - **API URL/Body**: Tham số request lấy job.
 - **Postgres Creds**: Thông tin kết nối Database.
 
-```yaml
-posgres:
-  host: localhost  # Đổi thành 'postgres' nếu chạy trong Docker container
-  port: 5432
-  user: tnd        # Cập nhật username của bạn
-  password: tnd    # Cập nhật password của bạn
-```
 
 ## 6. dotenv configuration file ./.env
 ```bash

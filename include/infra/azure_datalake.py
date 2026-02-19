@@ -11,21 +11,19 @@ logger = setup_logger(__name__)
 
 class AzureDataLakeClient:
     def __init__(self):
-        # Sử dụng DefaultAzureCredential để tự động dò tìm credential
-        # (Ưu tiên: Environment Var -> Workload Identity -> Managed Identity -> Azure CLI -> Interactive)
-        self.credential = DefaultAzureCredential()
+        # 1. Lấy Connection String trực tiếp từ môi trường
+        self.connection_string = os.getenv("AZURE_CONNECTION_STRING")
+        self.file_system_name = os.getenv("AZURE_CONTAINER_NAME", "vietnamworks")
         
-        self.account_name = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
-        self.file_system_name = os.getenv("AZURE_CONTAINER_NAME", "vietnamworks") # Tương đương Bucket trong MinIO
+        if not self.connection_string:
+            logger.error("Missing AZURE_CONNECTION_STRING in .env file.")
+            raise ValueError("AZURE_CONNECTION_STRING is not set.")
+
+        logger.info(f"Initializing ADLS Gen2 Client via Connection String for container: {self.file_system_name}")
         
-        self.account_url = f"https://{self.account_name}.dfs.core.windows.net"
-        
-        logger.info(f"Initializing Azure Data Lake Client for account: {self.account_name}, container: {self.file_system_name}")
         try:
-            self.service_client = DataLakeServiceClient(
-                account_url=self.account_url, 
-                credential=self.credential
-            )
+            # 2. Khởi tạo client chuẩn xác qua hàm from_connection_string
+            self.service_client = DataLakeServiceClient.from_connection_string(self.connection_string)
             self.file_system_client = self.service_client.get_file_system_client(self.file_system_name)
         except Exception as e:
             logger.error(f"Failed to initialize ADLS Gen2 client: {e}")
@@ -83,9 +81,7 @@ class AzureDataLakeClient:
         # adlfs sẽ tự dùng DefaultAzureCredential nếu không truyền key, 
         # nhưng truyền account_name là bắt buộc.
         storage_options = {
-            "account_name": self.account_name,
-            "anon": False # Bắt buộc phải xác thực
-            # Nếu bạn dùng DefaultAzureCredential thì không cần 'account_key'
+            "connection_string": self.connection_string
         }
 
         print(f"🔄 Streaming DataFrame from {full_path}...")

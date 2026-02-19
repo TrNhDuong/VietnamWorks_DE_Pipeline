@@ -1,0 +1,30 @@
+data:
+  url: https://ms.vietnamworks.com/job-search/v1.0/search
+  body: {"userId":0,"query":"","filter":[],"ranges":[],"order":[],
+        "hitsPerPage":100,"page":0,
+        "retrieveFields":["address","benefits","jobTitle","salaryMax",
+                          "isSalaryVisible","jobLevelVI","isShowLogo",
+                          "salaryMin","companyLogo","userId","jobLevel",
+                          "jobLevelId","jobId","jobUrl","companyId","approvedOn",
+                          "isAnonymous","alias","expiredOn","industries",
+                          "industriesV3","workingLocations","services",
+                          "companyName","salary","onlineOn","simpleServices",
+                          "visibilityDisplay","isShowLogoInSearch","priorityOrder",
+                          "skills","profilePublishedSiteMask","jobDescription",
+                          "jobRequirement","prettySalary","requiredCoverLetter",
+                          "languageSelectedVI","languageSelected","languageSelectedId",
+                          "typeWorkingId","createdOn","isAdrLiteJob"],
+        "summaryVersion":""
+    }
+  raw_path: data/raw.jsonl
+
+posgres:
+  staging:
+    schema: staging
+    table: job_company
+  warehouse:
+    schema: warehouse
+
+
+
+  

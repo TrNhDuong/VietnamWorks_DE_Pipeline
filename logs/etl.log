@@ -160,3 +160,94 @@
 2026-02-08 20:07:41,982 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
 2026-02-08 20:07:44,217 | INFO | __main__ | Transforming raw data to silver format
 2026-02-08 20:07:44,225 | INFO | __main__ | Loading silver data into staging database
+2026-02-18 14:45:14,314 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:45:14,314 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:45:14,365 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 14:45:14,366 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 14:49:45,328 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:49:45,335 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:49:45,351 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 14:49:45,358 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 14:52:34,914 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
+2026-02-18 14:52:34,953 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-18 14:52:36,707 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
+2026-02-18 14:52:36,722 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-18 14:53:59,656 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+	AzureCliCredential: Azure CLI not found on path
+	AzurePowerShellCredential: PowerShell is not installed
+	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+2026-02-18 14:54:03,137 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+	AzureCliCredential: Azure CLI not found on path
+	AzurePowerShellCredential: PowerShell is not installed
+	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+2026-02-18 14:59:01,300 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:59:01,320 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 14:59:04,687 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 14:59:04,697 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 15:01:49,898 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
+2026-02-18 15:01:49,908 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-18 15:01:54,886 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
+2026-02-18 15:01:54,898 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
+2026-02-18 15:03:13,649 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+	AzureCliCredential: Azure CLI not found on path
+	AzurePowerShellCredential: PowerShell is not installed
+	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+2026-02-18 15:03:23,001 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+	AzureCliCredential: Azure CLI not found on path
+	AzurePowerShellCredential: PowerShell is not installed
+	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+2026-02-18 22:13:27,881 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-02-18 22:13:27,883 | INFO | __main__ | Extracting data from source API
+2026-02-18 22:13:30,013 | INFO | __main__ | Uploading raw data to Azure at rundate: 2026-18-02
+2026-02-18 22:13:30,013 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 22:13:31,194 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-18-02.parquet (173.95 KB)
+2026-02-18 15:16:09,846 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 15:16:09,859 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 15:16:09,951 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-18 15:16:09,964 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-18 15:16:11,630 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
+2026-02-18 15:16:11,635 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:16:11,716 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
+2026-02-18 15:16:11,720 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:16:12,464 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-18.parquet (187.78 KB)
+2026-02-18 15:16:12,495 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-17.parquet (187.78 KB)
+2026-02-18 15:16:14,932 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-18 15:16:14,935 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-17
+2026-02-18 15:16:14,939 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:16:14,952 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-18 15:16:14,955 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-18
+2026-02-18 15:16:14,958 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:21:16,606 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-18 15:21:16,606 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-18 15:21:16,609 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-18
+2026-02-18 15:21:16,610 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-17
+2026-02-18 15:21:16,613 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:21:16,615 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-18 15:21:18,100 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-18 15:21:18,119 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-18 15:21:18,129 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-18 15:21:18,129 | INFO | include.etl.raw_to_silver | Loading silver data into staging database

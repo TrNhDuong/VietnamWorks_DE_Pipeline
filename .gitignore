@@ -1,5 +1,4 @@
 __pycache__
-config.yaml
 scheduler
 *dag_*
 *.cfg

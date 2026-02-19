@@ -62,24 +62,6 @@ services:
       retries: 50
     restart: always
 
-  # --- 3. MinIO (S3 Compatible - Raw Data) ---
-  minio:
-    image: minio/minio
-    command: server /data --console-address ":9001"
-    ports:
-      - "9000:9000" # API Port
-      - "9001:9001" # Console UI Port
-    environment:
-      # Bạn nên sửa lại config.yaml để khớp với user/pass này
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    volumes:
-      - minio-data:/data
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
 
   # --- 4. Các thành phần của Airflow ---
   airflow-webserver:
