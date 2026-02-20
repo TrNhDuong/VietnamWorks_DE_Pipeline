@@ -97,5 +97,14 @@ Dự án được đóng gói hoàn toàn bằng Docker Compose để dễ dàng
    docker-compose up -d --build
    ```
 
+3. **Cấu hình file .env**
+   ```bash
+   AZURE_STORAGE_ACCOUNT_NAME =
+   AZURE_CONTAINER_NAME =
+   AZURE_CONNECTION_STRING =
+   POSTGRES_CONNECTION_STRING =
+   DBT_PASSWORD =
+   ```
+
 3. **Truy cập:**
    - Airflow UI: [http://localhost:8081](http://localhost:8081)

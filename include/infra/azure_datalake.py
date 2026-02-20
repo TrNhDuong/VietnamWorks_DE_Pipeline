@@ -84,7 +84,7 @@ class AzureDataLakeClient:
             "connection_string": self.connection_string
         }
 
-        print(f"🔄 Streaming DataFrame from {full_path}...")
+        logger.info(f"Streaming DataFrame from {full_path}...")
 
         try:
             if format == 'parquet':

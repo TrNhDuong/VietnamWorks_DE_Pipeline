@@ -1,253 +1,48 @@
-2026-01-27 07:26:06,944 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-01-27 07:28:39,746 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-01-27 07:28:40,277 | INFO | __main__ | Extracting data from source API
-2026-01-27 07:28:41,937 | INFO | __main__ | Uploading raw data to MinIO at rundate: 27-01-2026
-2026-01-30 01:47:20,744 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 01:47:20,745 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 01:47:20,760 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
-2026-01-30 01:47:20,776 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
-2026-01-30 01:47:21,215 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 01:47:21,215 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 01:47:22,838 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-28
-2026-01-30 01:47:23,025 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 01:47:25,572 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 01:47:25,604 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 01:47:25,684 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 01:47:25,717 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-28
-2026-01-30 01:47:25,819 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 01:47:25,848 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 01:47:25,935 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 01:47:25,941 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 01:47:31,214 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
-2026-01-30 01:47:32,089 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
-2026-01-30 01:47:33,218 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
-2026-01-30 01:47:33,438 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
-2026-01-30 01:47:33,941 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
-2026-01-30 01:47:35,068 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
-2026-01-30 01:52:37,089 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
-2026-01-30 01:52:39,241 | INFO | include.etl.silver_to_warehouse |  Starting ETL Process - Silver to Warehouse Phase
-2026-01-30 01:52:44,577 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
-2026-01-30 01:52:45,454 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
-2026-01-30 01:52:46,611 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
-2026-01-30 01:52:49,820 | INFO | include.etl.silver_to_warehouse | Transforming silver data to gold format
-2026-01-30 01:52:50,697 | INFO | include.etl.silver_to_warehouse | Transforming gold data to delta format
-2026-01-30 01:52:51,909 | INFO | include.etl.silver_to_warehouse | Loading delta data into warehouse
-2026-01-30 02:04:28,211 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:04:28,212 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:04:28,435 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:04:28,435 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:04:29,931 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
-2026-01-30 02:04:30,161 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:04:32,452 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:04:32,452 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:04:32,473 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:04:32,473 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
-2026-01-30 02:04:32,655 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:04:32,656 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:04:32,724 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:04:32,724 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:15:38,286 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:15:38,294 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:15:38,697 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:15:38,700 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:15:40,225 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
-2026-01-30 02:15:40,317 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:15:42,782 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:15:42,783 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:15:42,806 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:15:42,809 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
-2026-01-30 02:15:43,074 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:15:43,074 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:15:43,230 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:15:43,236 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:20:32,989 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:20:32,998 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:20:33,167 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:20:33,167 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:20:34,856 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:20:34,913 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
-2026-01-30 02:20:37,071 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:20:37,094 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
-2026-01-30 02:20:37,101 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:20:37,125 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:20:37,233 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:20:37,247 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:20:37,292 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:20:37,304 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:23:23,282 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:23:23,387 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:23:24,883 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:23:26,770 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:23:26,792 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:23:26,939 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:23:26,996 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:24:25,622 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:24:25,712 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:24:27,385 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:24:28,705 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:24:28,726 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:24:28,851 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:24:28,905 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:28:18,056 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:28:18,082 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:28:18,281 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:28:18,281 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:28:19,769 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-29
-2026-01-30 02:28:19,897 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:28:21,684 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:28:21,697 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:28:21,709 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:28:21,716 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-29
-2026-01-30 02:28:21,871 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:28:21,872 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:28:21,940 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:28:21,939 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:33:40,984 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:33:41,217 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:33:42,808 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:33:44,812 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:33:44,839 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:33:45,136 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:33:45,230 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-01-30 02:34:42,836 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-01-30 02:34:42,925 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-01-30 02:34:44,448 | INFO | include.etl.extract_to_raw | Uploading raw data to MinIO at rundate: 2026-01-30
-2026-01-30 02:34:45,955 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-01-30 02:34:45,970 | INFO | include.etl.raw_to_silver | Reading raw data from MinIO at rundate: 2026-01-30
-2026-01-30 02:34:46,087 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-01-30 02:34:46,143 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-02-08 19:10:37,802 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-02-08 19:10:37,807 | INFO | __main__ | Extracting data from source API
-2026-02-08 19:10:39,574 | INFO | __main__ | Uploading raw data to Azure at rundate: 2024-06-01
-2026-02-08 19:10:39,579 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 19:10:41,872 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2024-06-01.parquet (157.58 KB)
-2026-02-08 19:49:29,977 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 19:49:29,979 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 19:49:29,983 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
-2026-02-08 19:51:12,560 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 19:51:12,563 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 19:51:12,566 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
-2026-02-08 19:51:15,768 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 19:52:44,467 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 19:52:44,469 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 19:52:44,473 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
-2026-02-08 19:52:46,705 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 19:56:22,230 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 19:56:22,233 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 19:56:22,236 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
-2026-02-08 19:56:24,550 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 19:56:24,563 | INFO | __main__ | Loading silver data into staging database
-2026-02-08 20:02:53,553 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 20:02:53,555 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 20:02:53,559 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
-2026-02-08 20:03:20,421 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 20:03:20,424 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 20:03:20,427 | INFO | __main__ | Reading raw data from MinIO at rundate: 2024-06-01
-2026-02-08 20:03:22,641 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 20:03:22,643 | INFO | __main__ | Loading silver data into staging database
-2026-02-08 20:06:13,567 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-02-08 20:06:13,570 | INFO | __main__ | Extracting data from source API
-2026-02-08 20:06:15,373 | INFO | __main__ | Uploading raw data to Azure at rundate: 2026-08-02
-2026-02-08 20:06:15,377 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 20:06:17,399 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-08-02.parquet (165.72 KB)
-2026-02-08 20:06:50,216 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 20:06:50,218 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 20:06:50,222 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
-2026-02-08 20:06:52,467 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 20:06:52,469 | INFO | __main__ | Loading silver data into staging database
-2026-02-08 20:07:41,974 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
-2026-02-08 20:07:41,978 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-08 20:07:41,982 | INFO | __main__ | Reading raw data from MinIO at rundate: 2026-08-02
-2026-02-08 20:07:44,217 | INFO | __main__ | Transforming raw data to silver format
-2026-02-08 20:07:44,225 | INFO | __main__ | Loading silver data into staging database
-2026-02-18 14:45:14,314 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:45:14,314 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:45:14,365 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 14:45:14,366 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 14:49:45,328 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:49:45,335 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:49:45,351 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 14:49:45,358 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 14:52:34,914 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
-2026-02-18 14:52:34,953 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-18 14:52:36,707 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
-2026-02-18 14:52:36,722 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-18 14:53:59,656 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
-Attempted credentials:
-	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
-Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
-	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
-	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
-	AzureCliCredential: Azure CLI not found on path
-	AzurePowerShellCredential: PowerShell is not installed
-	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
-To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
-2026-02-18 14:54:03,137 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
-Attempted credentials:
-	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
-Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
-	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
-	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
-	AzureCliCredential: Azure CLI not found on path
-	AzurePowerShellCredential: PowerShell is not installed
-	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
-To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
-2026-02-18 14:59:01,300 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:59:01,320 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 14:59:04,687 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 14:59:04,697 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 15:01:49,898 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
-2026-02-18 15:01:49,908 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-18 15:01:54,886 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
-2026-02-18 15:01:54,898 | INFO | include.infra.azure_datalake | Initializing Azure Data Lake Client for account: duongbambo, container: vietnamworks
-2026-02-18 15:03:13,649 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
-Attempted credentials:
-	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
-Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
-	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
-	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
-	AzureCliCredential: Azure CLI not found on path
-	AzurePowerShellCredential: PowerShell is not installed
-	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
-To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
-2026-02-18 15:03:23,001 | ERROR | include.infra.azure_datalake | Error uploading DataFrame: DefaultAzureCredential failed to retrieve a token from the included credentials.
-Attempted credentials:
-	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
-Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
-	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
-	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
-	AzureCliCredential: Azure CLI not found on path
-	AzurePowerShellCredential: PowerShell is not installed
-	AzureDeveloperCliCredential: Azure Developer CLI could not be found. Please visit https://aka.ms/azure-dev for installation instructions and then,once installed, authenticate to your Azure account using 'azd auth login'.
-To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
-2026-02-18 22:13:27,881 | INFO | __main__ | Starting ETL Process - Extract Phase
-2026-02-18 22:13:27,883 | INFO | __main__ | Extracting data from source API
-2026-02-18 22:13:30,013 | INFO | __main__ | Uploading raw data to Azure at rundate: 2026-18-02
-2026-02-18 22:13:30,013 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 22:13:31,194 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-18-02.parquet (173.95 KB)
-2026-02-18 15:16:09,846 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 15:16:09,859 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 15:16:09,951 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
-2026-02-18 15:16:09,964 | INFO | include.etl.extract_to_raw | Extracting data from source API
-2026-02-18 15:16:11,630 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-18
-2026-02-18 15:16:11,635 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:16:11,716 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-17
-2026-02-18 15:16:11,720 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:16:12,464 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-18.parquet (187.78 KB)
-2026-02-18 15:16:12,495 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-17.parquet (187.78 KB)
-2026-02-18 15:16:14,932 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-02-18 15:16:14,935 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-17
-2026-02-18 15:16:14,939 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:16:14,952 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-02-18 15:16:14,955 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-18
-2026-02-18 15:16:14,958 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:21:16,606 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-02-18 15:21:16,606 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
-2026-02-18 15:21:16,609 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-18
-2026-02-18 15:21:16,610 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-17
-2026-02-18 15:21:16,613 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:21:16,615 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
-2026-02-18 15:21:18,100 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-02-18 15:21:18,119 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
-2026-02-18 15:21:18,129 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
-2026-02-18 15:21:18,129 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-20 13:31:12,876 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-20 13:31:12,895 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-20 13:31:12,932 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-20 13:31:12,949 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-20 13:31:14,713 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-19
+2026-02-20 13:31:14,719 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 13:31:14,798 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-20
+2026-02-20 13:31:14,805 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 13:31:15,856 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-20.parquet (182.43 KB)
+2026-02-20 13:31:15,925 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-19.parquet (182.52 KB)
+2026-02-20 13:31:17,502 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-20 13:31:17,507 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-20
+2026-02-20 13:31:17,511 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 13:31:17,519 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-20.parquet...
+2026-02-20 13:31:17,522 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-20 13:31:17,526 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-19
+2026-02-20 13:31:17,529 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 13:31:17,537 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-19.parquet...
+2026-02-20 13:31:19,291 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-20 13:31:19,301 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-20 13:31:19,713 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-20 13:31:19,721 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-20 20:33:50,032 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-20 20:33:50,033 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 20:33:50,033 | INFO | __main__ | Reading raw data from Azure at rundate: 2026-02-19
+2026-02-20 20:33:50,034 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-19.parquet...
+2026-02-20 20:33:52,833 | INFO | __main__ | Transforming raw data to silver format
+2026-02-20 20:33:52,846 | INFO | __main__ | Silver DataFrame head:    salary  ... processed_date
+0       0  ...     2026-02-20
+1       0  ...     2026-02-20
+2       0  ...     2026-02-20
+3     700  ...     2026-02-20
+4       0  ...     2026-02-20
+
+[5 rows x 4 columns]
+2026-02-20 20:33:52,847 | INFO | __main__ | Loading silver data into staging database
+2026-02-20 20:37:37,686 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-20 20:37:37,686 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 20:37:37,687 | INFO | __main__ | Reading raw data from Azure at rundate: 2026-02-19
+2026-02-20 20:37:37,688 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-19.parquet...
+2026-02-20 20:37:40,995 | INFO | __main__ | Transforming raw data to silver format
+2026-02-20 20:37:41,046 | INFO | __main__ | Loading silver data into staging database
+2026-02-20 20:39:16,745 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-02-20 20:39:16,746 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-20 20:39:16,747 | INFO | __main__ | Reading raw data from Azure at rundate: 2026-02-19
+2026-02-20 20:39:16,747 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-19.parquet...
+2026-02-20 20:39:19,655 | INFO | __main__ | Transforming raw data to silver format
+2026-02-20 20:39:19,766 | INFO | __main__ | Loading silver data into staging database

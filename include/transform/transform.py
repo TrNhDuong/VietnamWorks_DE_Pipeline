@@ -8,6 +8,9 @@ def transform_silver(df_raw):
     # 1️⃣ Load JSONL
     df = df_raw.copy()
 
+    # ⭐ 6️⃣ CHUẨN HOÁ TÊN CỘT → lowercase
+    df.columns = df.columns.str.lower()
+
     # 2️⃣ Chọn cột quan trọng
     cols_to_keep = [
         "jobid","jobtitle", "joburl", "jobdescription", "jobrequirement", 
@@ -60,8 +63,6 @@ def transform_silver(df_raw):
         )
         df = df.drop(columns=["industriesv3"])
 
-    # ⭐ 6️⃣ CHUẨN HOÁ TÊN CỘT → lowercase
-    df.columns = df.columns.str.lower()
 
     for col in ["jobtitle", "jobdescription", "jobrequirement", "joblevel", "joblevelvi", "salarycurrency", "companyname"]:
         if col in df.columns:

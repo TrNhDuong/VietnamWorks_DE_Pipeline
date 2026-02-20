@@ -89,5 +89,6 @@ Cấu hình hệ thống nằm tại `include/config.yaml`.
     AZURE_STORAGE_ACCOUNT_NAME = 
     AZURE_CONTAINER_NAME = 
     POSTGRES_CONNECTION_STRING = 
+    AZURE_CONNECTION_STRING =
     DBT_PASSWORD = 
 ```

@@ -27,6 +27,10 @@ def raw_to_silver(rundate: str):
         format='parquet'
     )
 
+    if df_raw.empty:
+        logger.warning(f"No raw data found for rundate: {rundate}. Skipping transformation and loading.")
+        raise ValueError(f"Raw data return empty in stage raw_to_silver for rundate: {rundate}")
+
     logger.info("Transforming raw data to silver format")  
     try:
         df_silver = transform_silver(df_raw=df_raw)
@@ -60,6 +64,8 @@ if __name__ == "__main__":
     logger.info("Transforming raw data to silver format")    
     df_silver = transform_silver(df_raw=df_raw)
 
+    print(df_raw.head())
+    print(df_silver.head())
     logger.info("Loading silver data into staging database")
     load_data_to_staging(df_silver=df_silver, connect_str=connect_str)
 
