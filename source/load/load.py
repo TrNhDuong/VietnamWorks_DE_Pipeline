@@ -1,5 +1,5 @@
 import pandas as pd
-from include.infra.factory import Factory
+from source.infra.factory import Factory
 
 
 def load_data_to_staging(df_silver: pd.DataFrame, connect_str: str):

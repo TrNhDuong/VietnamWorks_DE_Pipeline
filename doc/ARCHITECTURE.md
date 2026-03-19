@@ -47,7 +47,7 @@ graph TD
 Luồng dữ liệu được chia thành 3 giai đoạn chính:
 
 ### Stage 1: Ingestion (Extract)
-- **Code**: `include/etl/extract_to_raw.py`
+- **Code**: `source/etl/extract_to_raw.py`
 - **Source**: VietnamWorks REST API.
 - **Destination**: Azure Data Lake Storage Gen2 (Container `vietnamworks`).
 - **Format**: JSON Lines (`.jsonl`) hoặc Parquet.
@@ -55,7 +55,7 @@ Luồng dữ liệu được chia thành 3 giai đoạn chính:
 - **Credential**: Sử dụng `DefaultAzureCredential` hoặc Access Key.
 
 ### Stage 2: Transform Raw to Staging (Silver)
-- **Code**: `include/etl/raw_to_silver.py`
+- **Code**: `source/etl/raw_to_silver.py`
 - **Input**: Files từ ADLS Gen2 (đọc qua `adlfs`).
 - **Destination**: PostgreSQL schema `staging`.
 - **Target Table**: `job_company` (Flat table).
@@ -82,4 +82,4 @@ Luồng dữ liệu được chia thành 3 giai đoạn chính:
     - Task 2: `raw_to_silver_task` (Python Operator).
     - Task 3: `dbt_run_task` (Bash Operator -> `dbt run`).
 
-- **`include/`**: Chứa Core Logic (Logic này có thể chạy độc lập không cần Airflow).
+- **`source/`**: Chứa Core Logic (Logic này có thể chạy độc lập không cần Airflow).

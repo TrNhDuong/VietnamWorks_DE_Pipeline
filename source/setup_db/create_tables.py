@@ -1,6 +1,6 @@
 import psycopg
 import os
-from include.utilis.utilis import loader
+from source.utilis.utilis import loader
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')

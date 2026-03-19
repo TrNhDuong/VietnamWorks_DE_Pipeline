@@ -3,8 +3,8 @@ from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
 
 try:
-    from include.etl.extract_to_raw import extract_to_raw as run_logic_extract
-    from include.etl.raw_to_silver import raw_to_silver as run_logic_raw_to_silver
+    from pipeline.extract_to_raw import extract_to_raw as run_logic_extract
+    from pipeline.raw_to_silver import raw_to_silver as run_logic_raw_to_silver
 except ImportError as e:
     raise RuntimeError(f"Failed to import ETL modules: {e}")
 

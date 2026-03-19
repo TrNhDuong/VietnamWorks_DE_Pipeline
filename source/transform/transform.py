@@ -1,7 +1,8 @@
 import pandas as pd
 import json
-from include.utilis.utilis import clean_html_text
-# from include.infra.postgres import get_new_ids_by_temp_table
+import ast
+from source.utilis.utilis import clean_html_text
+# from source.infra.postgres import get_new_ids_by_temp_table
 from datetime import date
 
 def transform_silver(df_raw):
@@ -54,13 +55,24 @@ def transform_silver(df_raw):
         df = df.drop(columns=["workinglocations"])
 
     # 5️⃣ Process industriesV3
+    
     if "industriesv3" in df.columns:
-        df["industries"] = df["industriesv3"].apply(
-            lambda x: json.dumps(
-                [ind.get("industryV3NameVI") for ind in x if isinstance(ind, dict) and ind.get("industryV3NameVI")],
-                ensure_ascii=False
-            ) if isinstance(x, list) else None
-        )
+        def parse_industries(x):
+            if isinstance(x, list):
+                items = x
+            elif isinstance(x, str):
+                try:
+                    items = ast.literal_eval(x)
+                except (ValueError, SyntaxError):
+                    return None
+            else:
+                return None
+            return [
+                ind.get("industryV3NameVI") for ind in items
+                if isinstance(ind, dict) and ind.get("industryV3NameVI")
+            ]  # ← trả về list, không json.dumps()
+
+        df["industries"] = df["industriesv3"].apply(parse_industries)
         df = df.drop(columns=["industriesv3"])
 
 

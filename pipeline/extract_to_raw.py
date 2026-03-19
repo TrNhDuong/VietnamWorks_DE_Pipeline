@@ -2,14 +2,14 @@ import pandas as pd
 import requests
 import os
 import argparse
-from include.utilis.utilis import loader
-from include.logs.logger import setup_logger
-from include.infra.factory import Factory
+from source.utilis.utilis import loader
+from source.logs.logger import setup_logger
+from source.infra.factory import Factory
 
 logger = setup_logger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
+CONFIG_PATH = os.path.join(BASE_DIR, 'source/config.yaml')
 
 def extract(url, body):
     page = 0

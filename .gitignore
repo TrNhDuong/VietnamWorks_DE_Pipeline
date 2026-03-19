@@ -4,3 +4,6 @@ scheduler
 *.cfg
 profiles.yml
 .env
+plugins/
+logs/
+.pytest_cache/

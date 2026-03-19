@@ -5,3 +5,4 @@ dbt-postgres
 adlfs
 azure-storage-file-datalake
 azure-identity
+ast

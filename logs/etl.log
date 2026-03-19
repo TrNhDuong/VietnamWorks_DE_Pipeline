@@ -46,3 +46,89 @@
 2026-02-20 20:39:16,747 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-19.parquet...
 2026-02-20 20:39:19,655 | INFO | __main__ | Transforming raw data to silver format
 2026-02-20 20:39:19,766 | INFO | __main__ | Loading silver data into staging database
+2026-02-24 14:22:56,156 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-24 14:22:56,161 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-24 14:22:56,193 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-24 14:22:56,194 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-24 14:22:58,000 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-23
+2026-02-24 14:22:58,008 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:22:58,160 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-20
+2026-02-24 14:22:58,168 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:22:59,068 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-23.parquet (180.45 KB)
+2026-02-24 14:22:59,467 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-20.parquet (180.43 KB)
+2026-02-24 14:23:01,026 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-24 14:23:01,031 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-23
+2026-02-24 14:23:01,035 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:23:01,051 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-23.parquet...
+2026-02-24 14:23:01,055 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-24 14:23:01,059 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-20
+2026-02-24 14:23:01,062 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:23:01,068 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-20.parquet...
+2026-02-24 14:23:02,558 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-24 14:23:02,684 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-24 14:23:02,703 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-24 14:23:02,763 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-02-24 14:24:01,893 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-02-24 14:24:01,902 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-02-24 14:24:03,802 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-24
+2026-02-24 14:24:03,807 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:24:04,774 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-24.parquet (180.43 KB)
+2026-02-24 14:24:06,981 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-02-24 14:24:06,985 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-24
+2026-02-24 14:24:06,989 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-02-24 14:24:06,996 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-24.parquet...
+2026-02-24 14:24:08,475 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-02-24 14:24:08,533 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-03-15 10:23:51,128 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-03-15 10:23:51,130 | INFO | include.etl.extract_to_raw | Loading config from: /opt/airflow/include/config.yaml
+2026-03-15 10:23:51,168 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-03-15 10:23:51,170 | INFO | include.etl.extract_to_raw | Extracting data from source API
+2026-03-15 10:23:53,253 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-02-24
+2026-03-15 10:23:53,259 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-15 10:23:53,293 | INFO | include.etl.extract_to_raw | Uploading raw data to Azure at rundate: 2026-03-14
+2026-03-15 10:23:53,298 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-15 10:23:53,876 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-02-24.parquet (178.48 KB)
+2026-03-15 10:23:53,986 | INFO | include.infra.azure_datalake | Uploaded DataFrame to raw/2026-03-14.parquet (178.92 KB)
+2026-03-15 10:23:55,670 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-03-15 10:23:55,676 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-02-24
+2026-03-15 10:23:55,680 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-15 10:23:55,683 | INFO | include.etl.raw_to_silver | Starting ETL Process - Raw to Silver Phase
+2026-03-15 10:23:55,688 | INFO | include.etl.raw_to_silver | Reading raw data from Azure at rundate: 2026-03-14
+2026-03-15 10:23:55,690 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-02-24.parquet...
+2026-03-15 10:23:55,692 | INFO | include.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-15 10:23:55,700 | INFO | include.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/2026-03-14.parquet...
+2026-03-15 10:23:57,405 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-03-15 10:23:57,423 | INFO | include.etl.raw_to_silver | Transforming raw data to silver format
+2026-03-15 10:23:57,563 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-03-15 10:23:57,563 | INFO | include.etl.raw_to_silver | Loading silver data into staging database
+2026-03-19 14:13:35,490 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-03-19 14:13:35,493 | INFO | __main__ | Extracting data from source API
+2026-03-19 14:13:37,865 | INFO | __main__ | Uploading raw data to Azure at rundate: 19-03-2026
+2026-03-19 14:13:37,866 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:13:40,598 | INFO | source.infra.azure_datalake | Uploaded DataFrame to raw/19-03-2026.parquet (173.56 KB)
+2026-03-19 14:20:05,465 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-03-19 14:20:05,466 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:20:05,467 | INFO | __main__ | Reading raw data from Azure at rundate: 19-03-2026
+2026-03-19 14:20:05,467 | INFO | source.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/19-03-2026.parquet...
+2026-03-19 14:20:06,943 | INFO | __main__ | Transforming raw data to silver format
+2026-03-19 14:20:07,051 | INFO | __main__ | Loading silver data into staging database
+2026-03-19 14:21:54,401 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:21:54,402 | INFO | source.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/19-03-2026.parquet...
+2026-03-19 14:32:12,532 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-03-19 14:32:55,619 | INFO | __main__ | Starting ETL Process - Extract Phase
+2026-03-19 14:32:55,624 | INFO | __main__ | Extracting data from source API
+2026-03-19 14:32:57,982 | INFO | __main__ | Uploading raw data to Azure at rundate: 19-03-2026
+2026-03-19 14:32:57,984 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:32:59,101 | INFO | source.infra.azure_datalake | Uploaded DataFrame to raw/19-03-2026.parquet (174.27 KB)
+2026-03-19 14:33:18,805 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-03-19 14:33:18,806 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:33:18,807 | INFO | __main__ | Reading raw data from Azure at rundate: 19-03-2026
+2026-03-19 14:33:18,807 | INFO | source.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/19-03-2026.parquet...
+2026-03-19 14:33:19,842 | INFO | __main__ | Transforming raw data to silver format
+2026-03-19 14:33:19,936 | INFO | __main__ | Loading silver data into staging database
+2026-03-19 14:35:52,053 | INFO | __main__ | Starting ETL Process - Raw to Silver Phase
+2026-03-19 14:35:52,053 | INFO | source.infra.azure_datalake | Initializing ADLS Gen2 Client via Connection String for container: vietnamworks
+2026-03-19 14:35:52,054 | INFO | __main__ | Reading raw data from Azure at rundate: 19-03-2026
+2026-03-19 14:35:52,055 | INFO | source.infra.azure_datalake | Streaming DataFrame from abfs://vietnamworks/raw/19-03-2026.parquet...
+2026-03-19 14:35:52,884 | INFO | __main__ | Transforming raw data to silver format
+2026-03-19 14:35:52,925 | INFO | __main__ | Loading silver data into staging database

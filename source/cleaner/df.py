@@ -41,7 +41,7 @@ def df_manager(df: pd.DataFrame) -> pd.DataFrame:
     # Parquet rất ghét cột 'object' chứa lẫn lộn số và chữ (mixed types).
     
     # Lấy danh sách các cột object (thường là string hoặc mixed)
-    object_cols = processed_df.select_dtypes(include=['object']).columns
+    object_cols = processed_df.select_dtypes(source=['object']).columns
     
     for col in object_cols:
         # Ép về string hết để an toàn. 

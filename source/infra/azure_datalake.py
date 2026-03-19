@@ -3,7 +3,7 @@ import pandas as pd
 import io 
 from azure.identity import DefaultAzureCredential
 from azure.storage.filedatalake import DataLakeServiceClient
-from include.logs.logger import setup_logger
+from source.logs.logger import setup_logger
 from dotenv import load_dotenv
 
 load_dotenv()

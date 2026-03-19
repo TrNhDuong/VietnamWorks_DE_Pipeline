@@ -1,14 +1,14 @@
 from argparse import ArgumentParser
-from include.utilis.utilis import loader
-from include.transform.transform import transform_silver
-from include.load.load import load_data_to_staging
-from include.logs.logger import setup_logger
-from include.infra.factory import Factory
+from source.utilis.utilis import loader
+from source.transform.transform import transform_silver
+from source.load.load import load_data_to_staging
+from source.logs.logger import setup_logger
+from source.infra.factory import Factory
 from dotenv import load_dotenv
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
+CONFIG_PATH = os.path.join(BASE_DIR, 'source/config.yaml')
 
 load_dotenv()
 
@@ -64,8 +64,6 @@ if __name__ == "__main__":
     logger.info("Transforming raw data to silver format")    
     df_silver = transform_silver(df_raw=df_raw)
 
-    print(df_raw.head())
-    print(df_silver.head())
     logger.info("Loading silver data into staging database")
     load_data_to_staging(df_silver=df_silver, connect_str=connect_str)
 

@@ -42,7 +42,7 @@ Có 2 cách để khởi tạo:
 Nếu bạn có Python local:
 ```bash
 pip install -r requirements.txt
-python -m include.setup_db.create_tables
+python -m source.setup_db.create_tables
 ```
 
 **Cách B: Dùng SQL Client**
@@ -65,19 +65,19 @@ Bạn có thể chạy từng module riêng lẻ nếu đã cài môi trường 
 
 ```bash
 # 1. Extract
-python -m include.etl.extract_to_raw
+python -m source.etl.extract_to_raw
 
 # 2. Transform to Staging
-python -m include.etl.raw_to_silver
+python -m source.etl.raw_to_silver
 
 # 3. dbt Run
 cd dbt_vietnamwork
 dbt run
 ```
 
-## 5. Configuration (`include/config.yaml`)
+## 5. Configuration (`source/config.yaml`)
 
-Cấu hình hệ thống nằm tại `include/config.yaml`.
+Cấu hình hệ thống nằm tại `source/config.yaml`.
 **Lưu ý**: Thông tin nhạy cảm (Credentials) nên để trong `.env`, không hardcode vào `config.yaml`.
 
 - **API URL/Body**: Tham số request lấy job.
